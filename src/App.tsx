@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import TestCompornent from "./TestCompornent";
 
 const bool: boolean = true;
 let array = [0, 0, 1, true];
@@ -76,15 +77,36 @@ interface pc {
 const pc1: pc = { id: 100, ostype: OS.mac };
 const pc2: pc = { id: 10, ostype: OS.windows };
 
-function App() {
+interface GEN<T = string> {
+  item: T;
+}
+
+const gen0: GEN<string> = {
+  item: "AAA",
+};
+
+const gen3: GEN = {
+  item: "AAA",
+};
+
+interface GEN2<T extends number | string> {
+  item: T;
+}
+
+const gen2: GEN2<number> = {
+  item: 12,
+};
+
+const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
+        <TestCompornent text="hello"></TestCompornent>
         <div>{name.first}</div>
         <div>{func1(10, 20)}</div>
       </header>
     </div>
   );
-}
+};
 
 export default App;
